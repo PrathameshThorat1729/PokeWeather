@@ -55,6 +55,7 @@ function App() {
           type="text"
           name="poke-search"
           id="poke-search"
+          placeholder="Search Best Pokemons Here"
         />
       </label>
 
@@ -72,6 +73,8 @@ function App() {
               return <Card key={i} data={el} />;
             })}
       </div>
+
+      <div className="footer">© by <a target="_blank" href="https://www.linkedin.com/in/prathamesh-thorat-56703730b/">Prathmesh Thorat</a> (<span>IIT Kanpur Y24</span>)</div>
     </>
   );
 }
