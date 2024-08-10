@@ -1,36 +1,27 @@
 import { useState, useEffect } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./App.css";
+import { Header } from "./Header.jsx";
+import { Card } from "./Card.jsx";
+import pokemon from "../public/pokedex.json";
+import quotes from "../public/quotes.json";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [time, setTime] = useState();
-  const [date, setDate] = useState();
   const [weather, setWeather] = useState();
+  const [name, setName] = useState("");
+  const [quote, setQuote] = useState(quotes[parseInt(Math.random() * 101)]);
 
-  useEffect(() => {
-    const fetchTime = ( ) => {
-      setTime(new Date().toLocaleTimeString());
-      setDate(new Date().toLocaleDateString().split("/").join("-"));
-    }
-    const timeInt = setInterval(fetchTime, 1000);
-    fetchTime();
-  }, [time]);
-
-  // fetchWeather(setWeather);
   useEffect(() => {
     const fetchWeather = () => {
       window.navigator.geolocation.getCurrentPosition(async (pos) => {
         let lat = pos.coords.latitude;
         let lon = pos.coords.longitude;
-        console.log(lat);
 
         let res = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=26ba37b3454507d776f11f8f0745bd8b`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=26ba37b3454507d776f11f8f0745bd8b&units=metric`
         );
         let json = await res.json();
         setWeather(json);
-        console.log(json);
       });
     };
 
@@ -42,31 +33,44 @@ function App() {
     return () => clearInterval(timeInt);
   }, []);
 
+  useEffect(() => {
+    const qtInt = setInterval(() => {
+      setQuote(quotes[parseInt(Math.random() * 101)]);
+    }, 1000 * 60);
+    return () => clearInterval(qtInt);
+  }, []);
+
   return (
     <>
-      <div className="header">
-        <div className="weather">
-          <img
-            src={
-              weather
-                ? "https://openweathermap.org/img/wn/" +
-                  weather.weather[0].icon +
-                  ".png"
-                : 1
-            }
-            alt="weather-icon"
-          />&nbsp;&nbsp;&nbsp;
-          {weather ? weather.weather[0].main : 1}
-        </div>
-        <div className="name">PokéWeather</div>
-        <div className="date-time">
-          <span className="date">
-            <i className="bi bi-calendar3"></i> &nbsp;&nbsp;&nbsp;{date}
-          </span>
-          <span className="time">
-            <i className="bi bi-clock"></i> &nbsp;&nbsp;&nbsp;{time}
-          </span>
-        </div>
+      <Header weather={weather} />
+      <div className="quote-box">
+        "{quote.quote}" ..... <b>{quote.author}</b>
+      </div>
+      <label className="fc">
+        <input
+          onChange={(e) => {
+            setName(e.target.value.trim());
+          }}
+          value={name}
+          type="text"
+          name="poke-search"
+          id="poke-search"
+        />
+      </label>
+
+      <div className="card-space">
+        {name != ""
+          ? pokemon
+              .filter((el, i) => {
+                name.toLowerCase()
+                return el.name.toLowerCase().search(name.toLowerCase()) >= 0;
+              })
+              .map((el, i) => {
+                return <Card key={i} data={el} />;
+              })
+          : pokemon.map((el, i) => {
+              return <Card key={i} data={el} />;
+            })}
       </div>
     </>
   );

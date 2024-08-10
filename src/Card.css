@@ -1,0 +1,70 @@
+.card {
+  width: 380px;
+  position: relative;
+  padding: 30px 20px;
+  box-shadow: 0 0 30px rgb(0, 0, 0);
+  border-radius: 10px;
+  margin: 30px;
+  transition: 300ms;
+  background: linear-gradient(red , #1a1a1a 60%);
+}
+.card img {
+  display: block;
+  width: 180px;
+  max-height: 200px;
+  position: relative;
+  margin: 20px auto;
+}
+.hp {
+  width: 80px;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 30px;
+  margin-left: auto;
+  font-weight: 400;
+  color: #000;
+}
+.poke-name {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.types {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0 30px 0;
+}
+.hp span,
+.types span {
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+.types span {
+  background-color: #ffffff;
+  padding: 5px 20px;
+  border-radius: 20px;
+  color: #000;
+}
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+.stats p {
+  color: #ffde00;
+}
+
+.poke-desc {
+  color: #bcbcbc;
+  font-weight: lighter;
+  text-align: justify;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px #ffdd0058;
+  transform: rotateZ(-2deg);
+}

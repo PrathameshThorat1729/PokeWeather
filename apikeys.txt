@@ -1,2 +1,0 @@
-Weather : 26ba37b3454507d776f11f8f0745bd8b (https://openweathermap.org/)
-Pokemon : b62acc19-1d2c-42dd-a220-99355ea7bf60(https://pokemontcg.io/)
