@@ -74,7 +74,7 @@ function App() {
             })}
       </div>
 
-      <div className="footer">© by <a target="_blank" href="https://www.linkedin.com/in/prathamesh-thorat-56703730b/">Prathmesh Thorat</a> (<span>IIT Kanpur Y24</span>)</div>
+      <div className="footer">© by <a target="_blank" href="https://www.instagram.com/prathameshthorat1729">Prathmesh Thorat</a> (<span>IIT Kanpur Y24</span>)</div>
     </>
   );
 }
