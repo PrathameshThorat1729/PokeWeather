@@ -41,9 +41,11 @@ function App() {
     return () => clearInterval(qtInt);
   }, []);
 
-  let filteredPoke = pokemon.filter((el) => { console.log(pokeFilter)
-    if(pokeFilter != "All") return el.type.indexOf(pokeFilter) >= 0
-    else return true; });
+  let filteredPoke = pokemon.filter((el) => {
+    console.log(pokeFilter);
+    if (pokeFilter != "All") return el.type.indexOf(pokeFilter) >= 0;
+    else return true;
+  });
 
   return (
     <>
@@ -70,7 +72,9 @@ function App() {
           id="poke-filter"
           value={pokeFilter}
         >
-          <option value="All" defaultChecked>All</option>
+          <option value="All" defaultChecked>
+            All
+          </option>
           <option value="Bug">Bug</option>
           <option value="Dark">Dark</option>
           <option value="Dragon">Dragon</option>
@@ -110,7 +114,7 @@ function App() {
         © by{" "}
         <a
           target="_blank"
-          href="https://www.linkedin.com/in/prathamesh-thorat-56703730b/"
+          href="https://www.instagram.com/prathameshthorat1729"
         >
           Prathmesh Thorat
         </a>{" "}
