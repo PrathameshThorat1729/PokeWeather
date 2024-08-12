@@ -7,10 +7,10 @@ export function Card(prop) {
   return (
     <>
       <div className="card">
-        <p className="hp">
-          <span>HP</span> {data.HP}
+        <p className="hp fc">
+          <span>HP</span>{data.HP}
         </p>
-        <img src={data.image} />
+        <img loading="lazy" src={data.image} />
         <h1 className="poke-name">{data.name}</h1>
         <h5 className="poke-desc">{data.desc}</h5>
         <div className="types">
@@ -34,7 +34,7 @@ export function Card(prop) {
             if(el == "Dark") {clr = "black"; tclr = "#fff"}
             if(el == "Steel") {clr = "rgb(113 113 113)"; tclr = "#fff"}
             if(el == "Dragon") {clr = "rgb(133 10 54)"; tclr = "#fff"}
-            return <span key={i} style={{background: clr, color: tclr}}>{el}</span>;
+            return <span className="fc" key={i} style={{background: clr, color: tclr}}>{el}</span>;
           })}
         </div>
         <div className="stats">

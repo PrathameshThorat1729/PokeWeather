@@ -8,6 +8,9 @@
   transition: 300ms;
   background: linear-gradient(red , #1a1a1a 60%);
 }
+.card > * {
+  flex-grow: 1;
+}
 .card img {
   display: block;
   width: 180px;
@@ -19,11 +22,13 @@
   width: 80px;
   background-color: #ffffff;
   text-align: center;
-  padding: 8px 0;
+  padding: 8px;
   border-radius: 30px;
   margin-left: auto;
   font-weight: 400;
   color: #000;
+  display: flex;
+  justify-content: space-evenly;
 }
 .poke-name {
   text-align: center;
@@ -50,7 +55,7 @@
 .stats {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   text-align: center;
 }
 .stats p {
@@ -64,7 +69,15 @@
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 30px #ffdd0058;
-  transform: rotateZ(-2deg);
+  box-shadow: 0 0 30px goldenrod;
+  transform: rotateZ(-2deg) translateY(-10px);
+}
+
+.stats div {
+  flex-grow: 1;
+}
+
+.stats div:nth-child(2) {
+  border-left: 1px solid red;
+  border-right: 1px solid red;
 }
