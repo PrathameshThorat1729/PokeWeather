@@ -10,7 +10,7 @@ export function Card(prop) {
         <p className="hp fc">
           <span>HP</span>{data.HP}
         </p>
-        <img loading="lazy" src={data.image} />
+        <img src={data.image} />
         <h1 className="poke-name">{data.name}</h1>
         <h5 className="poke-desc">{data.desc}</h5>
         <div className="types">
